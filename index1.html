@@ -38,12 +38,31 @@
         </div>
     </div>
     <script>
-        var now = new Date();
-        var seconds = now.getSeconds();
-        if (seconds < 10) {
-            seconds = "0" + seconds;
+        // ゼロを追加する
+        var addZero = function(value) {
+            if (value < 10) {
+                value = "0" + value;
+            }
+            return value;
         }
-        document.getElementById("timer").innerHTML = seconds;
+
+        // これでも可能
+        function addZero () {
+
+        }
+
+        var now = new Date();
+
+        var seconds = now.getSeconds();
+        seconds = addZero(seconds);
+
+        var minutes = now.getMinutes();
+        minutes = addZero(minutes);
+
+        var hours = now.getHours();
+        hours = addZero(hours);
+
+        document.getElementById("timer").innerHTML = hours + ":" + minutes + ":" + seconds;
     </script>
     <!-- Bootstrap4 -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
