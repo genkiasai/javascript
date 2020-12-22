@@ -46,23 +46,24 @@
             return value;
         }
 
-        // これでも可能
-        function addZero () {
+        // addEventListener：イベントを監視する
+        document.getElementById("start_stop").addEventListener("click",
+        function() {
+            
+            var now = new Date();
 
-        }
+            var seconds = now.getSeconds();
+            seconds = addZero(seconds);
 
-        var now = new Date();
+            var minutes = now.getMinutes();
+            minutes = addZero(minutes);
 
-        var seconds = now.getSeconds();
-        seconds = addZero(seconds);
+            var hours = now.getHours();
+            hours = addZero(hours);
 
-        var minutes = now.getMinutes();
-        minutes = addZero(minutes);
+            document.getElementById("timer").innerHTML = hours + ":" + minutes + ":" + seconds;
 
-        var hours = now.getHours();
-        hours = addZero(hours);
-
-        document.getElementById("timer").innerHTML = hours + ":" + minutes + ":" + seconds;
+        });
     </script>
     <!-- Bootstrap4 -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
