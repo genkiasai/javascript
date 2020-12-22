@@ -38,32 +38,17 @@
         </div>
     </div>
     <script>
-        // ゼロを追加する
-        var addZero = function(value) {
-            if (value < 10) {
-                value = "0" + value;
-            }
-            return value;
-        }
-
-        // addEventListener：イベントを監視する
-        document.getElementById("start_stop").addEventListener("click",
-        function() {
-            
-            var now = new Date();
-
-            var seconds = now.getSeconds();
-            seconds = addZero(seconds);
-
-            var minutes = now.getMinutes();
-            minutes = addZero(minutes);
-
-            var hours = now.getHours();
-            hours = addZero(hours);
-
-            document.getElementById("timer").innerHTML = hours + ":" + minutes + ":" + seconds;
-
+        document.getElementById("start_stop").addEventListener("click", function() {
+            var start = new Date();
+            // 第二引数の単位はms
+            setInterval(goTimer, 10);
         });
+
+        var goTimer = function() {
+            var now = new Date();
+            document.getElementById("timer").innerHTML = now.getTime();
+
+        }
     </script>
     <!-- Bootstrap4 -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
