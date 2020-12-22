@@ -38,9 +38,12 @@
         </div>
     </div>
     <script>
-        // innerHTML:プロパティ(≠メソッド)
-        // getElementByIdのプロパティのひとつであるinnerHTMLに00:00:01を代入する
-        document.getElementById("timer").innerHTML = "00:00:01";
+        var now = new Date();
+        var seconds = now.getSeconds();
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+        document.getElementById("timer").innerHTML = seconds;
     </script>
     <!-- Bootstrap4 -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
