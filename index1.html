@@ -39,14 +39,26 @@
     </div>
     <script>
         var start;
-
+        var timer_id;
+        // クリックされたときのイベントドリブン
         document.getElementById("start_stop").addEventListener("click", function() {
             start = new Date();
+            if (this.innerHTML === "START") {   
+                // 第二引数の単位はms
+                timer_id = setInterval(goTimer, 10);
 
-            // 第二引数の単位はms
-            setInterval(goTimer, 10);
+                // STOPボタンにする
+                this.innerHTML = "STOP";
+                this.classList.remove("btn-primary");
+                this.classList.add("btn-danger");
+            } else {
+                clearInterval(timer_id);
 
-            
+                // STARTボタンにする
+                this.innerHTML = "START";
+                this.classList.remove("btn-danger");
+                this.classList.add("btn-primary");
+            }
         });
 
         // ゼロを追加する
@@ -57,6 +69,7 @@
             return value;
         }
 
+        // 表示の処理
         var goTimer = function() {
             var now = new Date();
             var seconds = Math.floor((now.getTime() - start.getTime())/1000);
