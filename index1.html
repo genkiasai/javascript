@@ -38,15 +38,15 @@
         </div>
     </div>
     <script>
+        var start = new Date();
         document.getElementById("start_stop").addEventListener("click", function() {
-            var start = new Date();
             // 第二引数の単位はms
             setInterval(goTimer, 10);
         });
 
         var goTimer = function() {
             var now = new Date();
-            document.getElementById("timer").innerHTML = now.getTime();
+            document.getElementById("timer").innerHTML = now.getTime() - start.getTime();
 
         }
     </script>
