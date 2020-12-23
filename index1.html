@@ -38,15 +38,35 @@
         </div>
     </div>
     <script>
-        var start = new Date();
+        var start;
+
         document.getElementById("start_stop").addEventListener("click", function() {
+            start = new Date();
+
             // 第二引数の単位はms
             setInterval(goTimer, 10);
+
+            
         });
+
+        // ゼロを追加する
+        var addZero = function(value) {
+            if (value < 10) {
+                value = "0" + value;
+            }
+            return value;
+        }
 
         var goTimer = function() {
             var now = new Date();
-            document.getElementById("timer").innerHTML = now.getTime() - start.getTime();
+            var seconds = Math.floor((now.getTime() - start.getTime())/1000);
+            var minutes = Math.floor(seconds / 60);
+            var hours = Math.floor(minutes / 60);
+
+            seconds = seconds - minutes * 60;
+            minutes = minutes - hours * 60;
+
+            document.getElementById("timer").innerHTML = addZero(hours) + ":" + addZero(minutes) + ":" + addZero(seconds);
 
         }
     </script>
