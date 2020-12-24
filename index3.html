@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Photos</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgba(26, 55, 229, .06);
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+        }
+
+        img {
+            width: 100%;
+            margin: 0;
+            vertical-align: top;
+        }
+
+        header {
+            background-color: #007acc;
+            color: #fff;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 25px;
+            padding: 5px;
+            text-align: center;
+            font-family: "Open Sans Condensed", sans-serif;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Photos</h1>
+    </header>
+
+    <div class="container">
+        <div id="img_unit">
+            <div class="photo">
+                <img src="img/img01.jpeg">
+                <div class="inner"><p>コメント１<span>nickname</span></p></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
